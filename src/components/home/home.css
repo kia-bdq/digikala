@@ -1,0 +1,13 @@
+.mainContainer{
+    display: flex;
+}
+.filter{
+    flex-basis: 20%;
+}
+.pList{
+    flex-basis: 80%;
+    margin: 5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
