@@ -10,7 +10,7 @@ const useInfinitFetch = (url) => {
     useEffect(() => {
         setIsPending(true);
         const abortCont = new AbortController();
-        console.log(url)
+        // console.log(url)
 
         fetch(url, {signal: abortCont.signal, 
                     headers: {token: 'mpfKW9ghVTCSuBZ7qTkSmEyvL38ShZxv'}})
@@ -25,16 +25,12 @@ const useInfinitFetch = (url) => {
                 setIsPending(false);
                 setError(null);
 
-                if(json.data.pager.total_Pages>=20 && json.data.pager.current_Page === 20)
+                if(json.data.pager.total_pages>=20 && json.data.pager.current_page === 20)
                 {
                     setHasMore(false);
-                    console.log(1)
-                } else if(json.data.pager.total_Pages === json.data.pager.current_Page){
+                } else if(json.data.pager.total_pages === json.data.pager.current_page){
                     setHasMore(false);
-                    console.log(2)
                 }
-                // console.log(data);
-                
             })
             .catch(err =>{
                 if( err.name === 'AbortError'){

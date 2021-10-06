@@ -11,3 +11,9 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+.loading{
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+}
+
