@@ -6,15 +6,12 @@
     width:100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.37);
-    /* display: none; */
 }
-/* .empty{
+.empty{
     text-align: center;
     padding-top: 10rem;
-    min-height: 60vh;
     font-size: 1.2rem;
-    font-family: "Lalezar";
-} */
+}
 .showModal{
     display: block;
 }
@@ -22,35 +19,55 @@
     display: none;
 }
 
-
 .modalDiv{
     position:fixed;
     background: white;
-    width: 40%;
-    height: 70%;
+    width: 24rem;
+    max-height: 28.5rem;
     top:50%;
     left:50%;
+    border-radius: 20px;
     transform: translate(-50%,-50%);
-    overflow-y: scroll;
+    
 }
-*::-webkit-scrollbar-track {
-    background: #ffffff;
-  }
+.modalDiv::-webkit-scrollbar {
+    width: 0px;
+}
+  
 /* .container{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 2rem 0rem;
     
-}
+} */
 .sum{
     flex:100%;
     max-width: 100%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    height: 8rem;
-    font-size: 1.3rem;
-    margin: 2rem 0.2rem;
+    /* box-shadow: 0 -3px 6px 0 rgba(0, 0, 0, 0.05); */
+    /* height: 8rem; */
+    /* font-size: 1.3rem; */
+    text-align: center;
+    padding: 1rem;
+    color: rgb(1, 54, 104);
+    margin-top: 4px;
 
+
+}
+.sumTitle{
+    /* font-size: 0.8rem; */
+    display: inline;
+}
+.sumAmount{
+    margin-bottom: 0;
+    display: inline;
+}
+.modalContainer{
+    overflow-y:scroll ;
+    max-height: 20rem;
+}
+.modalContainer::-webkit-scrollbar {
+    width: 0px;
 }
 
 ul {
@@ -58,82 +75,93 @@ ul {
     margin: 0 0.2rem;
     padding: 0;
     text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
     flex:100%;
     max-width: 100%;
+    max-height: 70%;
     
 }
 
+
 li{
     border-bottom: 1px solid rgba(197, 197, 197, 0.288);
-    padding: 2rem 0;
+    padding: 1rem 0;
     font-size: 0.8rem;
     
 }
 
-.commodityContainer{
+.pContainer{
     display: flex;
     flex-wrap: wrap;
     text-align: right;
     align-items: center;
 }
-.right{
+.pContainer .right{
     text-align: center;
-    flex:100%;
-    max-width: 100%;
+    flex:20%;
+    max-width: 20%;
     
 }
-img{
-    width: 30%;
+.pContainer img{
+    width: 100%;
 }
-.middleRight{
-    flex:100%;
-    max-width: 100%;
-    text-align: center;
-    font-size: 0.8rem;
 
-}
 .name{
-    font-size: 1.4rem;
+    font-size: 0.8rem;
     margin-top: 0;
+    display: -webkit-box;
+    max-width: 22ch;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
 
-}
-.middleLeft{
-    padding-bottom: 0;
-    flex:100%;
-    max-width: 100%;
-    text-align: center;
-      
-}
 .trash{
     cursor: pointer;
-    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: rgb(114, 114, 114);
+    /* margin-top: 1rem; */
 }
 .count{
     border: 2px solid rgb(100, 100, 100);
     text-align: center;
     border-radius: 5px;
     width: 6rem;
-    margin: 0 auto;
     
 }   
-p{
+.count p{
     display: inline-block;
     margin: 0 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
     cursor: pointer;
 }
 .deactive{
     color: rgb(201, 201, 201);
 }
-.left{
-    text-align: center;
-    flex:100%;
-    max-width: 100%;
+.pContainer .left{
+    flex:70%;
+    max-width: 70%;
 
 }
+.details{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+.options{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+.innerDiv > h2{
+    text-align: center;
+}
+.price{
+    margin-top: 0;
+    color: rgb(88, 88, 88);
+}
 
-@media only screen and (min-width: 800px){
+/* @media only screen and (min-width: 800px){
 
     .empty{
         min-height: 70vh;
@@ -193,9 +221,9 @@ p{
 
     }
 
-}
+} */
 
-@media only screen and (min-width: 1090px){
+/* @media only screen and (min-width: 1090px){
     .mainDiv{
         
     }
@@ -211,4 +239,10 @@ p{
         max-width: 70%;
     }
 
+} */
+
+/* @media only screen and (max-width: 1300px){
+    .modalDiv{
+        width: 60%;
+    }
 } */

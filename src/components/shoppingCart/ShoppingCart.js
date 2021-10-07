@@ -9,8 +9,6 @@ const ShoppingCart = ({handleVisibility, show}) => {
     const cartData = useSelector(state => state.cart.cartArray);
     const sum= useSelector(state => state.cart.sum);
     const dispatch = useDispatch();
-    console.log(show);
-
 
     return ( 
         <div className={show ? "modalBg showModal" : "modalBg hideModal"} onClick={handleVisibility}>
@@ -23,42 +21,41 @@ const ShoppingCart = ({handleVisibility, show}) => {
                         <ul>
                             {cartData.map( product => 
                                 <li key={cartData.indexOf(product)}>
-                                    <div className="commodityContainer">
+                                    <div className="pContainer">
                                         <div className="right">
-                                            <Link to={"/Timche/commodity/"+product.id}>
+                                            <Link to={"/product/"+product.id}>
                                                 <img src={product.picture} alt={product.name}/>
                                             </Link>
                                         </div>
-
-                                        <div className="middleRight">
-                                            <p className="name">{product.name}</p>
-                                        </div>
-
-                                        <div className="middleLeft">                                       
-                                            <div className="count"> 
-                                                <p className="plus" onClick={()=> dispatch(increment(cartData.indexOf(product)))}>+</p>
-                                                <p>{product.count}</p>
-                                                <p className={product.count>1? "minus":"minus deactive"}  
-                                                    onClick={product.count >1 ? 
-                                                        () => dispatch(decrement(cartData.indexOf(product))): undefined}>
-                                                -
-                                                </p>
-                                            </div>
-                                            <FaTrashAlt className="trash" onClick={() => 
-                                                dispatch(removeFromCart(cartData.indexOf(product)))}/>
-                                        </div>
                                         <div className="left">
-                                            <p>{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} تومان</p>
+                                            <div className="details">
+                                                <p className="name">{product.name}</p>
+                                                <p className="price">{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} تومان</p>
+                                            </div>
+                                            <div className="options">
+                                            <div className="count"> 
+                                            <p className="plus" onClick={()=> dispatch(increment(cartData.indexOf(product)))}>+</p>
+                                            <p>{product.count}</p>
+                                            <p className={product.count>1? "minus":"minus deactive"}  
+                                                onClick={product.count >1 ? 
+                                                    () => dispatch(decrement(cartData.indexOf(product))): undefined}>
+                                            -
+                                            </p>
+                                        </div>
+                                        <FaTrashAlt className="trash" onClick={() => 
+                                            dispatch(removeFromCart(cartData.indexOf(product)))}/>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
                                 ) //end of map function
                             }
                         </ul>
-                        <div className="sum">
-                            <p>مجموع</p>
-                            {sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} تومان
+                        
                         </div>
+                        <div className="sum">
+                            <p className="sumTitle">قابل پرداخت: </p>
+                            <p className="sumAmount">{sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} تومان</p>
                         </div>
                     </div>
                 }

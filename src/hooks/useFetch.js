@@ -9,7 +9,7 @@ const useFetch = (url) => {
     useEffect(() => {
         const abortCont = new AbortController();
         window.scrollTo(0,0);
-        console.log(url)
+        // console.log(url)
 
         fetch(url, {signal: abortCont.signal, 
                     headers: {token: 'mpfKW9ghVTCSuBZ7qTkSmEyvL38ShZxv'}})

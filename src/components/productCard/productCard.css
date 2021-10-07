@@ -16,7 +16,7 @@ a{
     text-decoration: none;
     text-align: right;
 }
-img{
+.card img{
     width: 250px;
     border-radius: 20px 20px 0 0 ;
     /* margin: 0 2rem; */
