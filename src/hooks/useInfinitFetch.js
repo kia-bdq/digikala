@@ -1,16 +1,20 @@
 import { useState, useEffect } from "react";
 
-const useInfinitFetch = (url) => {
+const useInfinitFetch = (url,restart) => {
     
     const [data, setData] = useState([]);
+    const [filters, setFilters] = useState({});
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
     const [hasMore, setHasMore] = useState(true);
 
     useEffect(() => {
+        if(restart === true){
+            setData([]);
+        }
         setIsPending(true);
         const abortCont = new AbortController();
-        // console.log(url)
+        console.log(url)
 
         fetch(url, {signal: abortCont.signal, 
                     headers: {token: 'mpfKW9ghVTCSuBZ7qTkSmEyvL38ShZxv'}})
@@ -21,6 +25,7 @@ const useInfinitFetch = (url) => {
                 return res.json();
             })
             .then(json => { 
+                setFilters(json.data.filters);
                 setData(old => [...new Set([...old, ...json.data.products])])
                 setIsPending(false);
                 setError(null);
@@ -42,10 +47,10 @@ const useInfinitFetch = (url) => {
                 }
             })
         return () => abortCont.abort();
-    }, [url]);
+    }, [url,restart]);
 
 
-    return {data, isPending, error, hasMore}
+    return {data,filters, isPending, error, hasMore}
 
 }
  

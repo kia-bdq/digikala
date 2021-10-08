@@ -5,6 +5,7 @@ import { useDispatch} from "react-redux";
 import { addToCart} from "../../redux/cartSlice";
 import RatingStars from "../ratingStars/RatingStars";
 import { useState } from "react";
+import LoadingBubbles from "../loadingBubbles/LoadingBubbles";
 
 const ProductDetails = () => {
     const id = useParams();
@@ -13,10 +14,10 @@ const ProductDetails = () => {
     const [wasAdded, setWasAdded] = useState(false);
     
 
-
     const add = ()=>{
-        dispatch(addToCart({id: data.data.product.id, name:data.data.product.title, picture:data.data.product.images.main,
-        price: data.data.product.price.selling_price, count: 1}));
+        dispatch(addToCart({id: data.data.product.id, 
+            name:data.data.product.title, picture:data.data.product.images.main,
+            price: data.data.product.price.selling_price, count: 1}));
         setWasAdded(true);
         console.log(wasAdded)
         setTimeout(()=> setWasAdded(false),7000);
@@ -28,7 +29,7 @@ const ProductDetails = () => {
     return (
         <div className="productContainer">
             {error && <p>{error}</p>}
-            {isPending && <p>Loading...</p>}
+            {isPending && <div className="loading"><LoadingBubbles /> </div> } 
             {data && 
             <div className="wrapper">
                 <div className="popUpDiv">

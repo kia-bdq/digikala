@@ -3,20 +3,17 @@ import ProductCard from "../productCard/ProductCard";
 import { useState, useCallback,useRef } from "react";
 import useInfinitFetch from "../../hooks/useInfinitFetch";
 import LoadingBubbles from "../loadingBubbles/LoadingBubbles";
+import Filters from "../filters/filters";
 
 const Home = () => {
     const observer = useRef();
-    const [params, setParams] = useState({page: 1, rows: 28});
-    const {data,isPending, error, hasMore} = 
-                useInfinitFetch(`https://www.digikala.com/front-end/search/?`+ new URLSearchParams(params));
+    const [params, setParams] = useState({changed: false, page: 1, rows: 28});
+    const {changed, ...rest} = params;
+    
+    const {data,filters,isPending, error, hasMore} = 
+                useInfinitFetch(`https://www.digikala.com/front-end/search/?`+ new URLSearchParams(rest), 
+                        changed);
 
-    // const loadMore = () =>{
-    //     const paramsTemplate = {...params};
-    //     paramsTemplate.page = paramsTemplate.page + 1;
-    //     setParams(paramsTemplate);
-    //     console.log(params);
-        
-    // }
 
     const lastItem = useCallback(
         (node) => {
@@ -26,6 +23,7 @@ const Home = () => {
             if (entries[0].isIntersecting && hasMore) {
                 const paramsTemplate = {...params};
                 paramsTemplate.page = paramsTemplate.page + 1;
+                paramsTemplate.changed = false;
                 setParams(paramsTemplate);  
             }
         });
@@ -38,7 +36,7 @@ const Home = () => {
         <section>
             <div className="mainContainer">
                 <div className="filter">
-                    
+                    {filters && <Filters filterList={filters} params={params} setParams={setParams}/>}
                 </div>
 
                 <div className="pList">
@@ -61,8 +59,9 @@ const Home = () => {
                                 </div>
                             }
                         }
-                    )}     <div className="loading"><LoadingBubbles /> </div>          
-                    
+                    )}     
+                    {isPending && <div className="loading"><LoadingBubbles /> </div> }         
+                    {data.length===0 && !isPending && <div className="notFound">کالایی یافت نشد! </div> }         
                     {error && <p>{error}</p>}
                 </div>
             </div>   

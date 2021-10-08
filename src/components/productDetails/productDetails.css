@@ -13,7 +13,7 @@
   /* position: absolute; */
 }
 #blob{
-  /* border-radius: 54% 20px 20px 51% / 65% 20px 20px 44%; */
+  border-radius: 54% 20px 20px 51% / 65% 20px 20px 44%;
   position: absolute;
   width: 44%;
   height: 100%;
@@ -21,7 +21,7 @@
   background-color: #ffffff;
   z-index: -2;
   /* box-shadow: 0px -6px 6px 0 rgba(0, 0, 0, 0.05), 0px 0px 6px 0 rgba(0, 0, 0, 0.03); */
-  animation: change 6s infinite;
+  animation: change 4s infinite;
 }
 
 .done{
@@ -103,7 +103,7 @@
   display: none;
 }
 
-@keyframes change {
+/* @keyframes change {
   0%{
     border-radius: 54% 20px 20px 51% / 65% 20px 20px 44%;
   }
@@ -115,6 +115,25 @@
   }
   75%{
     border-radius: 56% 20px 20px 49% / 60% 20px 20px 50%;
+  }
+  100%{
+    border-radius: 54% 20px 20px 51% / 65% 20px 20px 44%;
+  }
+} */
+
+
+@keyframes change {
+  0%{
+    border-radius: 54% 20px 20px 51% / 65% 20px 20px 44%;
+  }
+  25%{
+    border-radius: 52% 20px 20px 54% / 61% 20px 20px 46%;
+  }
+  50%{
+    border-radius: 49% 20px 20px 63% / 56% 20px 20px 50%;
+  }
+  75%{
+    border-radius: 46% 20px 20px 65% / 53% 20px 20px 53%;
   }
   100%{
     border-radius: 54% 20px 20px 51% / 65% 20px 20px 44%;
