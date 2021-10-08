@@ -30,7 +30,9 @@ const ShoppingCart = ({handleVisibility, show}) => {
                                         <div className="left">
                                             <div className="details">
                                                 <p className="name">{product.name}</p>
-                                                <p className="price">{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} تومان</p>
+                                                <p className="price">
+                                                    {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ریال
+                                                    </p>
                                             </div>
                                             <div className="options">
                                             <div className="count"> 
@@ -55,7 +57,7 @@ const ShoppingCart = ({handleVisibility, show}) => {
                         </div>
                         <div className="sum">
                             <p className="sumTitle">قابل پرداخت: </p>
-                            <p className="sumAmount">{sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} تومان</p>
+                            <p className="sumAmount">{sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ریال</p>
                         </div>
                     </div>
                 }

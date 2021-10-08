@@ -1,15 +1,18 @@
 .mainContainer{
     display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
 }
 .filter{
     flex-basis: 20%;
 }
 .pList{
-    flex-basis: 80%;
+    flex-basis: 70%;
     /* margin: 5rem 0; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
 }
 .loading{
     flex-basis: 100%;

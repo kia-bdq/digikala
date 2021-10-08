@@ -8,40 +8,54 @@
     border-radius: 20px;
     background-color: white;
     padding-top: 0.5rem;
-    width: 250px;
+    width: 225px;
     margin: 0.5rem 0.5rem;
+    padding-bottom: 0.5rem;
+    position: relative;
+    transition: .5s ease;
 }
-a{
+.cardContainer > a{
     color: black;
     text-decoration: none;
     text-align: right;
 }
 .card img{
-    width: 250px;
+    width: 225px;
     border-radius: 20px 20px 0 0 ;
     /* margin: 0 2rem; */
 }
 .cardDetails{
-    background-image: linear-gradient(#ffffff00, #EEE8F5);
+    /* background-image: linear-gradient(#ffffff00, #e85a4f); */
     height: 4rem;
     border-radius:0 0 20px 20px ;
-    padding: 1rem;
-
+    padding: 1rem 1.2rem;
 
 }
 .cardTitle{
     font-size: 0.7rem;
     margin-top: 0;
     display: -webkit-box;
-    max-width: 30ch;
+    max-width: 20ch;
     overflow: hidden;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    color: rgb(153, 153, 153);
+    height: 2.2rem;
 }
 button{
     display: block;
 }
 
+.price{
+    text-align: left;
+    color: #49274a;
+}
+
+  .card:hover {
+    margin-top: -1px;
+    
+  }
+  
 @media only screen and (min-width:800px) {
     .cardContainer{
         flex-basis: 33%;

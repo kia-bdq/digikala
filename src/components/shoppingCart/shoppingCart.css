@@ -22,7 +22,7 @@
 .modalDiv{
     position:fixed;
     background: white;
-    width: 24rem;
+    width: 26rem;
     max-height: 28.5rem;
     top:50%;
     left:50%;
@@ -34,23 +34,15 @@
     width: 0px;
 }
   
-/* .container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 2rem 0rem;
-    
-} */
 .sum{
     flex:100%;
     max-width: 100%;
-    /* box-shadow: 0 -3px 6px 0 rgba(0, 0, 0, 0.05); */
-    /* height: 8rem; */
-    /* font-size: 1.3rem; */
     text-align: center;
     padding: 1rem;
-    color: rgb(1, 54, 104);
-    margin-top: 4px;
+    color: #f8eee7;
+    margin-top: 2px;
+    background-color: #49274a;
+    border-radius: 0 0 20px 20px;
 
 
 }
@@ -79,7 +71,6 @@ ul {
     flex:100%;
     max-width: 100%;
     max-height: 70%;
-    
 }
 
 
@@ -155,6 +146,7 @@ li{
 }
 .innerDiv > h2{
     text-align: center;
+    margin-top: 0.8rem;
 }
 .price{
     margin-top: 0;

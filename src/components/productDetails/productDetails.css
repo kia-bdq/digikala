@@ -2,37 +2,121 @@
   height: 100%;
 }
 .wrapper{
-  background-color: white;
+  background-color: #49274a;
   display: flex;
-  width: 65%;
+  width: 60%;
   border-radius: 20px;
-  margin: 3rem auto;
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  /* position: absolute; */
+}
+#blob{
+  /* border-radius: 54% 20px 20px 51% / 65% 20px 20px 44%; */
+  position: absolute;
+  width: 44%;
+  height: 100%;
+  right: 0;
+  background-color: #ffffff;
+  z-index: -2;
+  /* box-shadow: 0px -6px 6px 0 rgba(0, 0, 0, 0.05), 0px 0px 6px 0 rgba(0, 0, 0, 0.03); */
+  animation: change 6s infinite;
+}
+
+.done{
+  animation: change 6s infinite;
 }
 .productPic{
   flex-basis: 40%;
-  text-align: center;
   margin: 5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .productPic img{
   width: 60%;
+  
+}
+#ratingStar{
+  margin-top: 1rem;
 }
 
 .detailsSide{
   flex-basis: 60%;
-  margin-top: 3rem;
+  color: #f8eee7;
   /* background-color: #e98074; */
   /* color: white; */
   border-radius: 20px 0 0 20px;
+  text-align: center;
+}
+.detailsSide > h3{
+  display: block;
+  max-width: 80%;
+  margin: 3rem auto;
+  line-height: 2.5rem;
 }
 .addToCartBtn{
   display: block;
   font-family: 'samim';
-  background-color: #e85a4f;
+  background-color: white;
   border: none;
-  color: white;
-  width: 70%;
+  color: #49274a ;
+  width: 60%;
   font-size: 1.2rem;
   border-radius: 10px;
   height: 3rem;
+  margin: 4rem auto;
+  cursor: pointer;
+}
+.addToCartBtn:hover{
+  background-color: #f8eee7;
+}
+.priceDiv{
+  margin-top: 4rem;
+}
+.rrp{
+  text-decoration:line-through;
+  color: rgb(185, 185, 185);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+.offPrice{
+  font-size: 1.5rem;
+  margin-top: 0;
+  color: #f8eee7;
+}
+.rateDetails{
+  display: flex;
+  text-align: center;
   margin: 0 auto;
+  justify-content: center;
+}
+.votes{
+  margin: 2px 0.5rem;
+  font-size: 0.8rem;
+  display: inline;
+}
+
+
+.popUpDiv{
+  display: none;
+}
+
+@keyframes change {
+  0%{
+    border-radius: 54% 20px 20px 51% / 65% 20px 20px 44%;
+  }
+  25%{
+    border-radius: 58% 20px 20px 49% / 60% 20px 20px 50%;
+  }
+  50%{
+    border-radius: 56% 20px 20px 50% / 50% 20px 20px 56%;
+  }
+  75%{
+    border-radius: 56% 20px 20px 49% / 60% 20px 20px 50%;
+  }
+  100%{
+    border-radius: 54% 20px 20px 51% / 65% 20px 20px 44%;
+  }
 }

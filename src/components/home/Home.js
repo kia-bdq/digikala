@@ -50,19 +50,19 @@ const Home = () => {
                                 <ProductCard id={product.id}
                                     image={product.images.main}
                                     title={product.title}
-                                    price={product.price.selling_price}  />
+                                    price={product.price.selling_price} />
                                 </div>
                             }else{
                                 return <div key={product.id}>
                                 <ProductCard id={product.id}
                                     image={product.images.main}
                                     title={product.title}
-                                    price={product.price.selling_price}  />
+                                    price={product.price.selling_price} />
                                 </div>
                             }
                         }
-                    )}               
-                    {isPending && <div className="loading"><LoadingBubbles /> </div>}
+                    )}     <div className="loading"><LoadingBubbles /> </div>          
+                    
                     {error && <p>{error}</p>}
                 </div>
             </div>   
