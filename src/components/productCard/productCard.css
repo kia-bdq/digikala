@@ -1,13 +1,15 @@
 .cardContainer{
-    flex-basis: 50%;
+    flex-basis: 100%;
     text-align: center;
 }
 .card{
-    display: inline-block;
+    display: block;
+    box-sizing: border-box;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.082);
     border-radius: 20px;
     background-color: white;
-    padding-top: 0.5rem;
+    /* padding-top: 0.5rem; */
+    padding: 1rem;
     width: 225px;
     margin: 0.5rem 0.5rem;
     padding-bottom: 0.5rem;
@@ -20,15 +22,15 @@
     text-align: right;
 }
 .card img{
-    width: 225px;
+    width: 100%;
     border-radius: 20px 20px 0 0 ;
-    /* margin: 0 2rem; */
+    margin: 0 auto;
 }
 .cardDetails{
     /* background-image: linear-gradient(#ffffff00, #e85a4f); */
     height: 4rem;
     border-radius:0 0 20px 20px ;
-    padding: 1rem 1.2rem;
+    padding: 1rem 0rem;
 
 }
 .cardTitle{
@@ -41,6 +43,7 @@
     -webkit-box-orient: vertical;
     color: rgb(153, 153, 153);
     height: 2.2rem;
+    transition: .5s ease;
 }
 button{
     display: block;
@@ -51,10 +54,13 @@ button{
     color: #49274a;
 }
 
-  .card:hover {
+.card:hover {
     margin-top: -1px;
-    
-  }
+}
+.card:hover  .cardTitle{
+    color:  #49274a;
+}
+
   
 @media only screen and (min-width:800px) {
     .cardContainer{

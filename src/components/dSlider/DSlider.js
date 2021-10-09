@@ -92,10 +92,9 @@ const DSlider = ({min, max, params, setParams, filterName, title}) => {
         <div ref={range} className="slider__range" />
       </div>
 
-      
-    </div>
-    <button className="setPriceBtn" onClick={filter}>اعمال فیلتر قیمت</button>
-    </div>
+      </div>
+      <button className="setPriceBtn" onClick={filter}>اعمال فیلتر قیمت</button>
+      </div>
   );
 }
  

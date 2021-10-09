@@ -12,6 +12,7 @@ const useInfinitFetch = (url,restart) => {
         if(restart === true){
             setData([]);
         }
+        setHasMore(true);
         setIsPending(true);
         const abortCont = new AbortController();
         console.log(url)

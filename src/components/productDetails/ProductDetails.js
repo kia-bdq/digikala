@@ -6,6 +6,7 @@ import { addToCart} from "../../redux/cartSlice";
 import RatingStars from "../ratingStars/RatingStars";
 import { useState } from "react";
 import LoadingBubbles from "../loadingBubbles/LoadingBubbles";
+import { FaRegCheckCircle } from "react-icons/fa";
 
 const ProductDetails = () => {
     const id = useParams();
@@ -20,21 +21,18 @@ const ProductDetails = () => {
             price: data.data.product.price.selling_price, count: 1}));
         setWasAdded(true);
         console.log(wasAdded)
-        setTimeout(()=> setWasAdded(false),7000);
-        // setTouched(true);
-        // setTimeout(()=> setAdded(false), 2000);
+        setTimeout(()=> setWasAdded(false),1200);
     }
 
 
     return (
+        <>
+        
         <div className="productContainer">
             {error && <p>{error}</p>}
             {isPending && <div className="loading"><LoadingBubbles /> </div> } 
             {data && 
             <div className="wrapper">
-                <div className="popUpDiv">
-                    <p className="pop">به سبد خرید افزوده شد</p>
-                </div>
                 <div className="productPic">
                     <img src={data.data.product.images.main} alt={data.data.product.title} />
                 </div>
@@ -61,11 +59,15 @@ const ProductDetails = () => {
                 </div>
                 <div id="blob"></div>
             </div>}
-
-            
-
-
         </div>
+        <div className={wasAdded ? "successful show" : "successful"} onClick={()=> setWasAdded(false)} >
+            <div className="successfulDiv" onClick={e => e.stopPropagation()}>
+                <FaRegCheckCircle className="check" onClick={() => setWasAdded(false)}/>
+                <p>کالا به سبد خرید اضافه شد</p>
+                
+            </div>
+        </div>
+        </>
     );
 }
  

@@ -4,10 +4,11 @@
 .wrapper{
   background-color: #49274a;
   display: flex;
+  flex-wrap: wrap;
   width: 60%;
   border-radius: 20px;
   position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
   /* position: absolute; */
@@ -36,7 +37,6 @@
 }
 .productPic img{
   width: 60%;
-  
 }
 #ratingStar{
   margin-top: 1rem;
@@ -103,25 +103,95 @@
   display: none;
 }
 
-/* @keyframes change {
-  0%{
-    border-radius: 54% 20px 20px 51% / 65% 20px 20px 44%;
-  }
-  25%{
-    border-radius: 58% 20px 20px 49% / 60% 20px 20px 50%;
-  }
-  50%{
-    border-radius: 56% 20px 20px 50% / 50% 20px 20px 56%;
-  }
-  75%{
-    border-radius: 56% 20px 20px 49% / 60% 20px 20px 50%;
-  }
-  100%{
-    border-radius: 54% 20px 20px 51% / 65% 20px 20px 44%;
-  }
-} */
+
+.successful{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.37);
+  z-index: 1000;
+  display: none;
+}
+.show{
+  display: block;
+}
+
+.successfulDiv{
+  position:fixed;
+  background: white;
+  width: 20rem;
+  height: 14.2rem;
+  top:50%;
+  left:50%;
+  border-radius: 20px;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  
+}
+.successfulDiv>p{
+  font-size: 1.2rem;
+  /* margin-top: rem; */
+}
+.check{
+  font-size: 5rem;
+  color: rgb(0, 204, 10);
+  margin-top: 3rem;
+}
 
 
+@media only screen and (max-width:1200px){
+  .wrapper{
+    width: 80%;
+  }
+  #blob{
+    width: 35%;
+    
+    /* background-color: black; */
+  }
+  .productPic{
+    flex-basis: 35%;
+  }
+}
+@media only screen and (max-width:800px){
+  .wrapper{
+    margin-top: 3rem;
+  }
+  #blob{
+    width: 100%;
+    height: 50%;
+    animation: changeHorizontaly 4s infinite;
+  }
+  .productPic{
+    flex-basis: 100%;
+  }
+  .productPic img{
+    width: 40%;
+    margin-top: 0;
+  }
+  
+  .detailsSide{
+    flex-basis: 100%;
+
+  }
+  .detailsSide > h3{
+    /* margin: 2rem auto; */
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    line-height: 2.5rem;
+    font-size: 1rem;
+  }
+  .addToCartBtn{
+    margin: 1rem auto;
+  }
+  
+  .priceDiv{
+    margin-top: 1rem;
+
+  }
+
+}
 @keyframes change {
   0%{
     border-radius: 54% 20px 20px 51% / 65% 20px 20px 44%;
@@ -137,5 +207,23 @@
   }
   100%{
     border-radius: 54% 20px 20px 51% / 65% 20px 20px 44%;
+  }
+}
+
+@keyframes changeHorizontaly {
+  0%{
+    border-radius: 20px 20px 54% 51% / 20px 20px 65% 44%;
+  }
+  25%{
+    border-radius: 20px 20px 52% 54% / 20px 20px 61% 46%;
+  }
+  50%{
+    border-radius: 20px 20px 49% 63% / 20px 20px 56% 50%;
+  }
+  75%{
+    border-radius: 20px 20px 46% 65% / 20px 20px 53% 53%;
+  }
+  100%{
+    border-radius: 20px 20px 54% 51% / 20px 20px 65% 44%;
   }
 }

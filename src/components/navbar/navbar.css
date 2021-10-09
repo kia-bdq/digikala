@@ -7,6 +7,8 @@
 .head h1{
     color: #49274a;
     margin: 1rem;
+    /* position: absolute; */
+    left: 1.65rem;
 }
 .logo{
     text-decoration: none;
@@ -29,7 +31,7 @@
 .fs{
     position: absolute;
     top: 1.65rem;
-    right: 1.65rem;
+    left: 1.65rem;
     font-size: 1.8rem;
     cursor: pointer;
     color: rgba(0, 0, 0, 0.678);
@@ -40,7 +42,7 @@
     position: absolute;
     display: inline-block;
     top: 0.2rem;
-    right: 1rem;
+    left: 2.8rem;
     width: 1.3rem;
     height: 1.2rem;
     padding-top: 0.02rem;

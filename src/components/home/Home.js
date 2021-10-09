@@ -36,11 +36,14 @@ const Home = () => {
         <section>
             <div className="mainContainer">
                 <div className="filter">
-                    {filters && <Filters filterList={filters} params={params} setParams={setParams}/>}
+                    <h2 className="fTitle">فیلترها</h2>
+                    <div className="filtersDiv">
+                        {filters && <Filters filterList={filters} params={params} setParams={setParams}/>}
+                    </div>
                 </div>
 
                 <div className="pList">
-                
+                {data && <h2 className="pTitle">کالاها</h2>}
                     {data && data.map((product, i) => 
                         {
                             if(data.length === i +1){
