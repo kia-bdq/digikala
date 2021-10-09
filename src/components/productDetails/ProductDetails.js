@@ -13,8 +13,6 @@ const ProductDetails = () => {
     const {data, isPending, error} = useFetch(`https://www.digikala.com/front-end/product/${id.id}/`);
     const dispatch = useDispatch();
     const [wasAdded, setWasAdded] = useState(false);
-    
-
     const add = ()=>{
         dispatch(addToCart({id: data.data.product.id, 
             name:data.data.product.title, picture:data.data.product.images.main,
@@ -42,7 +40,8 @@ const ProductDetails = () => {
                         <RatingStars rate={data.data.product.rating.rate} id="ratingSt"/>
                         <p className="votes">({data.data.product.rating.count} رأی)</p>
                     </div>
-                    <div className="priceDiv">
+                    {data.data.product.status ==='marketable' &&
+                        <div className="priceDiv">
                         {data.data.product.price.selling_price !== data.data.product.price.rrp_price && 
                             <p className="rrp">
                             {data.data.product.price.rrp_price.toString()
@@ -54,8 +53,13 @@ const ProductDetails = () => {
                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ریال
                         </p>
                     </div>
+                    }
+                    {data.data.product.status==='marketable' ? 
+                    <button onClick={ add } className="addToCartBtn"> افزودن به سبد خرید</button> :
+                    <button className="addToCartBtn disabled">ناموجود</button>
+                    }
                     
-                    <button onClick={ add } className="addToCartBtn"> افزودن به سبد خرید</button>
+                    
                 </div>
                 <div id="blob"></div>
             </div>}

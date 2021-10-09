@@ -60,7 +60,9 @@ button{
 .card:hover  .cardTitle{
     color:  #49274a;
 }
-
+.red{
+    color: rgb(211, 0, 0);
+}
   
 @media only screen and (min-width:800px) {
     .cardContainer{

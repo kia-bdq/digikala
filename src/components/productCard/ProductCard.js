@@ -8,7 +8,8 @@ const ProductCard = ({id, title, image, price}) => {
                 <img src={image} alt={title}/>
                <div className="cardDetails">
                     <p className="cardTitle">{title}</p>
-                    <p className="price">{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ریال</p>    
+                    {price? <p className="price">{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ریال</p>:    
+                        <p className="price red">ناموجود</p>  }
                 </div>
             </Link>
             

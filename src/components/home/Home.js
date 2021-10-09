@@ -4,16 +4,16 @@ import { useState, useCallback,useRef } from "react";
 import useInfinitFetch from "../../hooks/useInfinitFetch";
 import LoadingBubbles from "../loadingBubbles/LoadingBubbles";
 import Filters from "../filters/filters";
+import {FaSearch} from 'react-icons/fa';
 
 const Home = () => {
     const observer = useRef();
     const [params, setParams] = useState({changed: false, page: 1, rows: 28});
     const {changed, ...rest} = params;
-    
+    const [q, setQ] = useState("")
     const {data,filters,isPending, error, hasMore} = 
                 useInfinitFetch(`https://www.digikala.com/front-end/search/?`+ new URLSearchParams(rest), 
                         changed);
-
 
     const lastItem = useCallback(
         (node) => {
@@ -32,6 +32,24 @@ const Home = () => {
         [isPending, hasMore, params]
     );
 
+    const search = (e) =>{
+        e.preventDefault();
+
+        if(q.length > 0){
+            const paramsTemplate = {...params};
+            paramsTemplate.page = 1;
+            paramsTemplate.q = q;
+            paramsTemplate.changed = true;
+            setParams(paramsTemplate); 
+        } else{
+            const paramsTemplate = {...params};
+            paramsTemplate.page = 1;
+            delete paramsTemplate.q;
+            paramsTemplate.changed = true;
+            setParams(paramsTemplate); 
+        }
+    }
+
     return ( 
         <section>
             <div className="mainContainer">
@@ -39,6 +57,18 @@ const Home = () => {
                     <h2 className="fTitle">فیلترها</h2>
                     <div className="filtersDiv">
                         {filters && <Filters filterList={filters} params={params} setParams={setParams}/>}
+                    </div>
+                    <div className="searchDiv">
+                        <form className="searchForm">
+                            <input
+                                type="text"
+                                id="header-search"
+                                placeholder="جستجو در کالاها"
+                                name="s" 
+                                onChange={(e)=>setQ(e.target.value)}
+                            />
+                            <button type="submit" onClick={search}><FaSearch/></button>
+                        </form>
                     </div>
                 </div>
 

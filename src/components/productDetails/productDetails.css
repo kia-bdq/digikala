@@ -72,6 +72,17 @@
 .addToCartBtn:hover{
   background-color: #f8eee7;
 }
+.disabled{
+  color: rgb(211, 0, 0);
+  background-color: rgb(214, 214, 214);
+  cursor:auto;
+  margin-top: 6rem;
+}
+.disabled:hover{
+  /* color: rgb(129, 129, 129); */
+  background-color: rgb(214, 214, 214);
+  cursor:auto;
+}
 .priceDiv{
   margin-top: 4rem;
 }

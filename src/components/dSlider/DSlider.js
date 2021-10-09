@@ -9,6 +9,11 @@ const DSlider = ({min, max, params, setParams, filterName, title}) => {
   const minValRef = useRef(min);
   const maxValRef = useRef(max);
   const range = useRef(null);
+  
+  useEffect(()=>{
+    setMinVal(min);
+    setMaxVal(max);
+  },[min,max])
 
   const getPercent = useCallback(
     (value) => Math.round(((value - min) / (max - min)) * 100),

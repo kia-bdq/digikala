@@ -15,7 +15,7 @@ const useInfinitFetch = (url,restart) => {
         setHasMore(true);
         setIsPending(true);
         const abortCont = new AbortController();
-        console.log(url)
+        // console.log(url)
 
         fetch(url, {signal: abortCont.signal, 
                     headers: {token: 'mpfKW9ghVTCSuBZ7qTkSmEyvL38ShZxv'}})
@@ -27,7 +27,7 @@ const useInfinitFetch = (url,restart) => {
             })
             .then(json => { 
                 setFilters(json.data.filters);
-                setData(old => [...new Set([...old, ...json.data.products])])
+                setData(old => [...new Map([...old, ...json.data.products].map((item) => [item["id"], item])).values()])
                 setIsPending(false);
                 setError(null);
 
