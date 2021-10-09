@@ -8,10 +8,9 @@
   width: 60%;
   border-radius: 20px;
   position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  /* position: absolute; */
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 #blob{
   border-radius: 54% 20px 20px 51% / 65% 20px 20px 44%;
@@ -21,7 +20,6 @@
   right: 0;
   background-color: #ffffff;
   z-index: -2;
-  /* box-shadow: 0px -6px 6px 0 rgba(0, 0, 0, 0.05), 0px 0px 6px 0 rgba(0, 0, 0, 0.03); */
   animation: change 4s infinite;
 }
 
@@ -45,8 +43,6 @@
 .detailsSide{
   flex-basis: 60%;
   color: #f8eee7;
-  /* background-color: #e98074; */
-  /* color: white; */
   border-radius: 20px 0 0 20px;
   text-align: center;
 }
@@ -79,7 +75,6 @@
   margin-top: 6rem;
 }
 .disabled:hover{
-  /* color: rgb(129, 129, 129); */
   background-color: rgb(214, 214, 214);
   cursor:auto;
 }
@@ -108,13 +103,9 @@
   font-size: 0.8rem;
   display: inline;
 }
-
-
 .popUpDiv{
   display: none;
 }
-
-
 .successful{
   position: fixed;
   top: 0;
@@ -139,11 +130,9 @@
   border-radius: 20px;
   transform: translate(-50%,-50%);
   text-align: center;
-  
 }
 .successfulDiv>p{
   font-size: 1.2rem;
-  /* margin-top: rem; */
 }
 .check{
   font-size: 5rem;
@@ -158,8 +147,6 @@
   }
   #blob{
     width: 35%;
-    
-    /* background-color: black; */
   }
   .productPic{
     flex-basis: 35%;
@@ -203,6 +190,7 @@
   }
 
 }
+
 @keyframes change {
   0%{
     border-radius: 54% 20px 20px 51% / 65% 20px 20px 44%;

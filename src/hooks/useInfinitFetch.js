@@ -9,14 +9,16 @@ const useInfinitFetch = (url,restart) => {
     const [hasMore, setHasMore] = useState(true);
 
     useEffect(() => {
-        if(restart === true){
-            setData([]);
-        }
+        const abortCont = new AbortController();
+
         setHasMore(true);
         setIsPending(true);
-        const abortCont = new AbortController();
-        // console.log(url)
+        if(restart === true){
+            //Reset when filters change
+            setData([]);
+        }
 
+        
         fetch(url, {signal: abortCont.signal, 
                     headers: {token: 'mpfKW9ghVTCSuBZ7qTkSmEyvL38ShZxv'}})
             .then(res => {
@@ -27,12 +29,17 @@ const useInfinitFetch = (url,restart) => {
             })
             .then(json => { 
                 setFilters(json.data.filters);
-                setData(old => [...new Map([...old, ...json.data.products].map((item) => [item["id"], item])).values()])
+
+                // Query search results had duplicat values so we had to fix that 
+                setData(old => [...new Map([...old, ...json.data.products]
+                                            .map((item) => [item["id"], item])).values()])
+
                 setIsPending(false);
                 setError(null);
 
-                if(json.data.pager.total_pages>=20 && json.data.pager.current_page === 20)
-                {
+
+                // API just Allows to access 20 pages...
+                if(json.data.pager.total_pages>=20 && json.data.pager.current_page === 20){
                     setHasMore(false);
                 } else if(json.data.pager.total_pages === json.data.pager.current_page){
                     setHasMore(false);

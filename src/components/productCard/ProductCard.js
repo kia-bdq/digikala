@@ -6,15 +6,15 @@ const ProductCard = ({id, title, image, price}) => {
         <div className="cardContainer">
             <Link to={`product/${id}`} className="card">
                 <img src={image} alt={title}/>
-               <div className="cardDetails">
+
+                <div className="cardDetails">
                     <p className="cardTitle">{title}</p>
-                    {price? <p className="price">{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ریال</p>:    
+                    {price? <p className="price">
+                        {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ریال</p>:    
                         <p className="price red">ناموجود</p>  }
                 </div>
             </Link>
-            
         </div>
-        
     );
 }
  

@@ -1,10 +1,12 @@
 import "./home.css";
+import {FaSearch} from 'react-icons/fa';
+import Filters from "../filters/filters";
 import ProductCard from "../productCard/ProductCard";
 import { useState, useCallback,useRef } from "react";
 import useInfinitFetch from "../../hooks/useInfinitFetch";
 import LoadingBubbles from "../loadingBubbles/LoadingBubbles";
-import Filters from "../filters/filters";
-import {FaSearch} from 'react-icons/fa';
+
+
 
 const Home = () => {
     const observer = useRef();
@@ -12,8 +14,8 @@ const Home = () => {
     const {changed, ...rest} = params;
     const [q, setQ] = useState("")
     const {data,filters,isPending, error, hasMore} = 
-                useInfinitFetch(`https://www.digikala.com/front-end/search/?`+ new URLSearchParams(rest), 
-                        changed);
+                useInfinitFetch(`https://www.digikala.com/front-end/search/?`+ 
+                        new URLSearchParams(rest), changed);
 
     const lastItem = useCallback(
         (node) => {
@@ -39,12 +41,20 @@ const Home = () => {
             const paramsTemplate = {...params};
             paramsTemplate.page = 1;
             paramsTemplate.q = q;
+            if(paramsTemplate["price[max]"]){
+                delete paramsTemplate["price[max]"];
+                delete paramsTemplate["price[min]"];
+            }
             paramsTemplate.changed = true;
             setParams(paramsTemplate); 
         } else{
             const paramsTemplate = {...params};
             paramsTemplate.page = 1;
             delete paramsTemplate.q;
+            if(paramsTemplate["price[max]"]){
+                delete paramsTemplate["price[max]"];
+                delete paramsTemplate["price[min]"];
+            }
             paramsTemplate.changed = true;
             setParams(paramsTemplate); 
         }
@@ -56,7 +66,10 @@ const Home = () => {
                 <div className="filter">
                     <h2 className="fTitle">فیلترها</h2>
                     <div className="filtersDiv">
-                        {filters && <Filters filterList={filters} params={params} setParams={setParams}/>}
+                        {filters && 
+                            <Filters filterList={filters} 
+                                params={params} 
+                                setParams={setParams}/>}
                     </div>
                     <div className="searchDiv">
                         <form className="searchForm">

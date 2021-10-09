@@ -1,31 +1,31 @@
 import "./productDetails.css";
-import { useParams } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
-import { useDispatch} from "react-redux";
-import { addToCart} from "../../redux/cartSlice";
-import RatingStars from "../ratingStars/RatingStars";
 import { useState } from "react";
-import LoadingBubbles from "../loadingBubbles/LoadingBubbles";
+import { useDispatch} from "react-redux";
+import useFetch from "../../hooks/useFetch";
+import { useParams } from "react-router-dom";
+import { addToCart} from "../../redux/cartSlice";
 import { FaRegCheckCircle } from "react-icons/fa";
+import RatingStars from "../ratingStars/RatingStars";
+import LoadingBubbles from "../loadingBubbles/LoadingBubbles";
+
 
 const ProductDetails = () => {
     const id = useParams();
     const {data, isPending, error} = useFetch(`https://www.digikala.com/front-end/product/${id.id}/`);
     const dispatch = useDispatch();
     const [wasAdded, setWasAdded] = useState(false);
+
     const add = ()=>{
         dispatch(addToCart({id: data.data.product.id, 
             name:data.data.product.title, picture:data.data.product.images.main,
             price: data.data.product.price.selling_price, count: 1}));
+            
         setWasAdded(true);
-        console.log(wasAdded)
         setTimeout(()=> setWasAdded(false),1200);
     }
 
-
     return (
         <>
-        
         <div className="productContainer">
             {error && <p>{error}</p>}
             {isPending && <div className="loading"><LoadingBubbles /> </div> } 
@@ -55,8 +55,8 @@ const ProductDetails = () => {
                     </div>
                     }
                     {data.data.product.status==='marketable' ? 
-                    <button onClick={ add } className="addToCartBtn"> افزودن به سبد خرید</button> :
-                    <button className="addToCartBtn disabled">ناموجود</button>
+                        <button onClick={ add } className="addToCartBtn"> افزودن به سبد خرید</button> :
+                        <button className="addToCartBtn disabled">ناموجود</button>
                     }
                     
                     
@@ -68,7 +68,6 @@ const ProductDetails = () => {
             <div className="successfulDiv" onClick={e => e.stopPropagation()}>
                 <FaRegCheckCircle className="check" onClick={() => setWasAdded(false)}/>
                 <p>کالا به سبد خرید اضافه شد</p>
-                
             </div>
         </div>
         </>

@@ -1,35 +1,36 @@
 .pulse-container {
-    width: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1rem;
+  width: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.pulse-bubble {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #000000;
+}
+
+.pulse-bubble-1 {
+  animation: pulse .4s ease 0s infinite alternate;
+}
+.pulse-bubble-2 {
+  animation: pulse .4s ease .1s infinite alternate;
+}
+.pulse-bubble-3 {
+  animation: pulse .4s ease .2s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  .pulse-bubble {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: #000000;
+  to {
+    opacity: .25;
+    transform: scale(.75);
   }
-  
-  .pulse-bubble-1 {
-      animation: pulse .4s ease 0s infinite alternate;
-  }
-  .pulse-bubble-2 {
-      animation: pulse .4s ease .1s infinite alternate;
-  }
-  .pulse-bubble-3 {
-      animation: pulse .4s ease .2s infinite alternate;
-  }
-  @keyframes pulse {
-    from {
-      opacity: 1;
-      transform: scale(1);
-    }
-    to {
-      opacity: .25;
-      transform: scale(.75);
-    }
-  }
+}
   

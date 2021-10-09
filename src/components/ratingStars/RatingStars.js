@@ -20,7 +20,7 @@ const RatingStars = ({rate}) => {
                 <span><FaRegStar /></span>
             </div>
         </div>
-     );
+    );
 }
  
 export default RatingStars;

@@ -8,7 +8,6 @@
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.082);
     border-radius: 20px;
     background-color: white;
-    /* padding-top: 0.5rem; */
     padding: 1rem;
     width: 225px;
     margin: 0.5rem 0.5rem;
@@ -27,7 +26,6 @@
     margin: 0 auto;
 }
 .cardDetails{
-    /* background-image: linear-gradient(#ffffff00, #e85a4f); */
     height: 4rem;
     border-radius:0 0 20px 20px ;
     padding: 1rem 0rem;
@@ -64,7 +62,7 @@ button{
     color: rgb(211, 0, 0);
 }
   
-@media only screen and (min-width:800px) {
+/* @media only screen and (min-width:800px) {
     .cardContainer{
         flex-basis: 33%;
     }
@@ -73,4 +71,4 @@ button{
     .cardContainer{
         flex-basis: 22%;
     }
-}
+} */

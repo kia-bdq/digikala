@@ -16,10 +16,8 @@ function App() {
               <Home />
             </Route>
             <Route exact path='/product/:id'>
-                <ProductDetails />
-              </Route>
-            
-  {/*<Route component={PageNotFound} />*/}
+              <ProductDetails />
+            </Route>
           </Switch>
         </div>
       </div>
